@@ -1,9 +1,10 @@
 import 'dart:convert';
 
-import 'package:cep_app/component/container_result_viacep_component.dart';
+import 'package:cep_app/component/container_result_cep_component.dart';
 import 'package:cep_app/constants/constants.dart';
-import 'package:cep_app/model/viacep_model.dart';
-import 'package:cep_app/repositories/viaCep_repository._imp.dart';
+import 'package:cep_app/model/cep_back4app_model.dart';
+
+import 'package:cep_app/repositories/cep_repository_imp.dart';
 import 'package:flutter/material.dart';
 
 class CepConsultView extends StatefulWidget {
@@ -18,8 +19,8 @@ class _CepConsultViewState extends State<CepConsultView> {
 
   var cep = "";
   bool loading = false;
-  var viacepModel = ViaCepModel();
-  var viaCepRepositoryImp = ViaCepRepositoryImp();
+  var cepBak4appModel = CepBack4appModel([]);
+  var cepRepositoryImp = CepRepositoryImp();
 
   @override
   Widget build(BuildContext context) {
@@ -60,8 +61,8 @@ class _CepConsultViewState extends State<CepConsultView> {
                             setState(() {
                               loading = true;
                             });
-                            viacepModel =
-                                await viaCepRepositoryImp.getAddress(cep);
+                            cepBak4appModel =
+                                await cepRepositoryImp.getAddress();
                           }
                           setState(() {
                             loading = false;
@@ -75,7 +76,7 @@ class _CepConsultViewState extends State<CepConsultView> {
                       const SizedBox(height: 20),
                       const Divider(height: 3),
                       const SizedBox(height: 20),
-                      ContainerResultViaCepComponent(viacepModel: viacepModel),
+                      ContainerResultViaCepComponent(),
                       if (loading) const CircularProgressIndicator()
                     ],
                   ),

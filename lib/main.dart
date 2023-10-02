@@ -1,3 +1,4 @@
+import 'package:cep_app/component/container_result_cep_component.dart';
 import 'package:cep_app/views/cep_consult_view.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const CepConsultView(),
+      home: CepConsultView(),
     );
   }
 }
