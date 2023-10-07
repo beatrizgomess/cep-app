@@ -5,7 +5,6 @@ import 'package:cep_app/component/list_address_component.dart';
 import 'package:cep_app/constants/constants.dart';
 import 'package:cep_app/controller/addressController.dart';
 import 'package:cep_app/model/viacep_model.dart';
-import 'package:cep_app/services/viaCep_service.dart';
 import 'package:flutter/material.dart';
 
 class CepConsultView extends StatefulWidget {
