@@ -1,4 +1,5 @@
 class ViaCepModel {
+  String? _objectId;
   String? _cep;
   String? _logradouro;
   String? _complemento;
@@ -11,7 +12,8 @@ class ViaCepModel {
   String? _siafi;
 
   ViaCepModel(
-      {String? cep,
+      {String? objectId,
+      String? cep,
       String? logradouro,
       String? complemento,
       String? bairro,
@@ -21,6 +23,9 @@ class ViaCepModel {
       String? gia,
       String? ddd,
       String? siafi}) {
+    if (objectId != null) {
+      this._objectId = objectId;
+    }
     if (cep != null) {
       this._cep = cep;
     }
@@ -53,6 +58,8 @@ class ViaCepModel {
     }
   }
 
+  String? get objectId => _objectId;
+  set objectId(String? objectId) => _objectId = objectId;
   String? get cep => _cep;
   set cep(String? cep) => _cep = cep;
   String? get logradouro => _logradouro;
@@ -75,6 +82,7 @@ class ViaCepModel {
   set siafi(String? siafi) => _siafi = siafi;
 
   ViaCepModel.fromJson(Map<String, dynamic> json) {
+    _objectId = json["objectId"];
     _cep = json['cep'];
     _logradouro = json['logradouro'];
     _complemento = json['complemento'];
@@ -89,6 +97,7 @@ class ViaCepModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['objectId'] = this._objectId;
     data['cep'] = this._cep;
     data['logradouro'] = this._logradouro;
     data['complemento'] = this._complemento;
