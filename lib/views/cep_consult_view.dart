@@ -73,7 +73,14 @@ class _CepConsultViewState extends State<CepConsultView> {
               const Divider(height: 3),
               const SizedBox(height: 20),
               ContainerResultViaCepComponent(viacepModel: viacepModel),
-              ListAddressComponent()
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ListAddressComponent()));
+                  },
+                  child: Text("Meus Endereços"))
             ],
           ),
         ),
